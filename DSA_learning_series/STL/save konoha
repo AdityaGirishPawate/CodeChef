@@ -1,0 +1,32 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define ll long long
+
+int main(){
+    int t;
+    cin>>t;
+    while(t--){
+        ll n,z;
+        cin>>n>>z;
+        priority_queue<ll> pq;
+        ll a[n];
+        for (int i = 0; i < n; ++i) {
+            cin>>a[i];
+            pq.push(a[i]);
+        }
+        ll temp,count=0;
+        while(z>0 && pq.top()>0){
+            z=z-pq.top();
+            temp= pq.top();
+            pq.pop();
+            pq.push(temp/2);
+            count++;
+        }
+        if(z>0) cout<<"Evacuate"<<endl;
+        else cout<<count<<endl;
+    }
+
+    return 0;
+}
+
+
