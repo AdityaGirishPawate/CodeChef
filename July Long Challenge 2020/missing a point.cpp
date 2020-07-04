@@ -53,27 +53,35 @@ int32_t main() {
         int n;
         cin>>n;
         vector<pair<int,int>> a(4*n-1);
-        map<int,int> f;
-        map<int,int> s;
+
+        set<int> s1;
+        set<int> s2;
         int x_coord,y_coord;
         rep(i,4*n-1){
             int x,y;
             cin>>x>>y;
             a[i].first=x;
             a[i].second=y;
+            if(*s1.find(x)==x )  s1.erase(x);
+            else s1.insert(x);
+            if(*s2.find(y)==y )  s2.erase(y);
+            else s2.insert(y);
+        }
+        cout<<*s1.begin()<<" "<<*s2.begin()<<endl;
+    }
+}
+
+/*rep(i,4*n-1)
+            if(f[a[i].first]==1) x_coord=a[i].first;
+            if(s[a[i].second]==1) y_coord=a[i].second;
             f[x]++;
             f[x]%=2;
             s[y]++;
             s[y]%=2;
-        }
-        rep(i,4*n-1){
-            if(f[a[i].first]==1) x_coord=a[i].first;
-            if(s[a[i].second]==1) y_coord=a[i].second;
-        }
-        cout<<x_coord<<" "<<y_coord<<endl;
-    }
-}
-
+        }*/
+//cout<<x_coord<<" "<<y_coord<<endl;
+//map<int,int> f;
+//map<int,int> s;
 
 
 
