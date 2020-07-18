@@ -70,6 +70,7 @@ int32_t main() {
         }
         sort(a.begin(),a.end());
         sort(b.begin(),b.end());
+        int sm1=*a.begin(),sm2=*b.begin();
         int ans=0;
         bool flag=true;
         for(auto k:cnt){
@@ -90,7 +91,7 @@ int32_t main() {
                     r--;
                     continue;
                 }
-                ans+=min(a[l],b[r]);
+                ans+=min(min(a[l],b[r]),min(2*sm1,2*sm2));
                 cnt_a[a[l]]--;
                 cnt_b[a[l]]++;
                 cnt_b[b[r]]--;
@@ -103,26 +104,3 @@ int32_t main() {
         }
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
